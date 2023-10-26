@@ -13,9 +13,10 @@ exports.deleteTask = exports.viewOneTask = exports.viewTask = exports.createTask
 const TaskModel_1 = require("../Model/TaskModel");
 const createTask = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { title } = req.body;
+        const { title, name } = req.body;
         const user = yield TaskModel_1.taskModel.create({
-            title
+            title,
+            name
         });
         return res.status(200).json({
             message: "Created Task Successfully",

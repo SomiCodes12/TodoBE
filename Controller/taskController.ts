@@ -3,10 +3,11 @@ import { taskModel } from "../Model/TaskModel";
 
 export const createTask = async (req: Request, res: Response) => {
   try {
-    const { title } = req.body;
+    const { title , name } = req.body;
 
     const user = await taskModel.create({
-      title
+      title,
+      name
     });
 
     return res.status(200).json({

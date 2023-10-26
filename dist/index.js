@@ -10,10 +10,9 @@ const mainApp_1 = __importDefault(require("./mainApp"));
 dotenv_1.default.config();
 const port = parseInt(process.env.PORT);
 const app = (0, express_1.default)();
-(0, db_1.default)();
 (0, mainApp_1.default)(app);
 const server = app.listen(process.env.PORT || port, () => {
-    console.log("Server Is Up and Running");
+    (0, db_1.default)();
 });
 process.on("uncaughtException", (error) => {
     console.log(error);

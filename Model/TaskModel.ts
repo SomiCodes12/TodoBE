@@ -8,6 +8,9 @@ const taskSchema = new mongoose.Schema<iTaskData>({
     type : String,
     required:true,
    },
+   name : {
+    type : String,
+   },
 } , {timestamps : true})
 
 export const taskModel = model <iTaskData>("tasks" , taskSchema);

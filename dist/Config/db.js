@@ -15,15 +15,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
-const url = process.env.URL;
+// const url = process.env.URL!;
+const url = "mongodb+srv://somtochukwue98:somtochukwue98@somto.5h4douj.mongodb.net/?retryWrites=true&w=majority";
 const dbConfig = () => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        yield mongoose_1.default.connect(url).then((res) => {
-            console.log("Connected");
-        });
-    }
-    catch (error) {
-        console.log(error);
-    }
+    yield mongoose_1.default.connect(url).then(() => {
+        console.log(`${mongoose_1.default.connection.host} is connected`);
+    });
 });
 exports.default = dbConfig;

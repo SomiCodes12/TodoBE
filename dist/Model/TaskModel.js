@@ -30,5 +30,8 @@ const taskSchema = new mongoose_1.default.Schema({
         type: String,
         required: true,
     },
+    name: {
+        type: String,
+    },
 }, { timestamps: true });
 exports.taskModel = (0, mongoose_1.model)("tasks", taskSchema);
