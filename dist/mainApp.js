@@ -21,16 +21,27 @@ const appConfig = (app) => __awaiter(void 0, void 0, void 0, function* () {
         .use((0, cors_1.default)())
         .use(express_1.default.json())
         .use("/api/v1", taskRouter_1.default)
-        .use("/api/v1", doneRouter_1.default)
-        .get("/", (req, res) => {
+        .use("/api/v1", doneRouter_1.default);
+    /**
+     * @openapi
+     * /default:
+     * get:
+     * tags:
+     *     - Create
+     * description : Response if app is up and running
+     * responses :
+     * 200:
+     * description: app is up and running
+     */
+    app.get("/default", (req, res) => {
         try {
             return res.status(200).json({
-                message: "Good to Go!!!"
+                message: "Good to Go!!!",
             });
         }
         catch (error) {
             return res.status(404).json({
-                message: "Root Error"
+                message: "Root Error",
             });
         }
     });

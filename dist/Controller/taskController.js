@@ -14,13 +14,13 @@ const TaskModel_1 = require("../Model/TaskModel");
 const createTask = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { title, name } = req.body;
-        const user = yield TaskModel_1.taskModel.create({
+        const task = yield TaskModel_1.taskModel.create({
             title,
-            name
+            name,
         });
         return res.status(200).json({
             message: "Created Task Successfully",
-            data: user
+            data: task,
         });
     }
     catch (error) {
@@ -36,7 +36,7 @@ const viewTask = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const user = yield TaskModel_1.taskModel.find();
         return res.status(200).json({
             message: "Viewed Task Successfully",
-            data: user
+            data: user,
         });
     }
     catch (error) {
@@ -53,7 +53,7 @@ const viewOneTask = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
         const user = yield TaskModel_1.taskModel.findById(taskID);
         return res.status(400).json({
             message: "Viewed One Task Successfully",
-            data: user
+            data: user,
         });
     }
     catch (error) {
@@ -68,14 +68,14 @@ const deleteTask = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     try {
         const { taskID } = req.params;
         const user = yield TaskModel_1.taskModel.findByIdAndDelete(taskID);
-        return res.status(400).json({
+        return res.status(200).json({
             message: "Deleted Task Successfully",
-            data: user
+            data: user,
         });
     }
     catch (error) {
         return res.status(400).json({
-            message: "Error Creating Task",
+            message: "Error Deleting Task",
             data: error.message,
         });
     }
