@@ -7,8 +7,3 @@ export interface iDone {
     title : string
     
 }
-
-export interface iAccount {
-    userName : string
-    tasks : []
-}
