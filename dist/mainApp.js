@@ -33,7 +33,7 @@ const appConfig = (app) => __awaiter(void 0, void 0, void 0, function* () {
      * 200:
      * description: app is up and running
      */
-    app.get("/default", (req, res) => {
+    app.get("/", (req, res) => {
         try {
             return res.status(200).json({
                 message: "Good to Go!!!",

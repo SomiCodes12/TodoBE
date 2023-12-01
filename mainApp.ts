@@ -25,7 +25,7 @@ const appConfig = async (app: Application) => {
    * description: app is up and running
    */
 
-  app.get("/default", (req: Request, res: Response) => {
+  app.get("/", (req: Request, res: Response) => {
     try {
       return res.status(200).json({
         message: "Good to Go!!!",
